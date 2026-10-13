@@ -404,10 +404,11 @@ textarea:focus-visible {
   margin-inline: auto;
 }
 
+/* FIX: removed margin-right so the photo group is truly centered */
 .home__images {
   position: relative;
   justify-self: center;
-  margin-right: 1.5rem;
+  margin-right: 0;
 }
 
 /* Glass decorative boxes */
@@ -449,12 +450,15 @@ textarea:focus-visible {
   rotate: 10deg;
 }
 
+/* FIX: image anchored to the horizontal center instead of right: -1.25rem */
 .home__img {
   position: absolute;
   width: 240px;
   max-width: none;
   bottom: 2.5rem;
-  right: -1.25rem;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
   -webkit-mask-image: linear-gradient(to bottom,
       hsla(var(--hue), 75%, 60%) 70%,
       transparent 100%);
@@ -1435,12 +1439,6 @@ textarea:focus-visible {
     transition: none;
   }
 
-  .home__img {
-  width: 400px !important;
-  max-width: none !important;
-  outline: 4px solid red;
-}
-
   .work__img,
   .work__card,
   .button i,
@@ -1448,5 +1446,79 @@ textarea:focus-visible {
   .scrollup,
   .footer__social-link {
     transition: none;
+  }
+}
+
+/* ============================================================
+   HERO IMAGE FIX — bulletproof centering at every screen size
+   ============================================================ */
+
+/* The photo group: fixed size, centered by construction */
+.home__images {
+  position: relative;
+  width: 250px;               /* one source of truth for the whole group */
+  height: 320px;
+  margin-inline: auto;        /* centers the group in ANY layout */
+  justify-self: center;       /* centers it inside the grid too */
+}
+
+/* Anchor every decoration to the group — size no longer
+   depends on which child happens to be in normal flow */
+.home__box-1,
+.home__box-2,
+.home__box-3 {
+  position: absolute;
+  width: 210px;
+  height: 250px;
+}
+
+.home__box-1 { top: 3.5rem; left: 0; }
+.home__box-2 { top: 4.25rem; left: .75rem; }
+.home__box-3 { top: 5rem; left: 1.5rem; }
+
+/* The photo: dead-center, immune to aspect ratio and
+   containing-block quirks (left:0 + right:0 + auto margins) */
+.home__img {
+  position: absolute;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: 220px;
+  transform: none;            /* kills the leftover translateX(-50%) shift */
+}
+
+/* Rotating circle tucked into the corner, smaller overhang */
+.home__circle {
+  right: -1.25rem;
+  bottom: -2.75rem;
+}
+
+/* Desktop scaling */
+@media (width >= 1150px) {
+  .home__images {
+    width: 300px;
+    height: 380px;
+  }
+
+  .home__box-1,
+  .home__box-2,
+  .home__box-3 {
+    width: 250px;
+    height: 300px;
+  }
+
+  .home__box-1 { top: 4rem; }
+  .home__box-2 { top: 4.75rem; }
+  .home__box-3 { top: 5.5rem; }
+
+  .home__img {
+    width: 260px;
+    bottom: 3.5rem;
+  }
+
+  .home__circle {
+    right: -1.5rem;
+    bottom: -2.25rem;
   }
 }
