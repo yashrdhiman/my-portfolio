@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Yash Dhiman">
+   <meta name="description" content="Portfolio of Yash Dhiman — B.Tech CSE student and aspiring data analyst who also builds responsive websites. Explore my projects, skills, and get in touch.">
+   <meta name="robots" content="index, follow">
+   <meta name="theme-color" content="#0a090e">
+
+   <!-- Open Graph: link previews on LinkedIn / WhatsApp / Discord -->
+   <meta property="og:type" content="website">
+   <meta property="og:title" content="Yash Dhiman | Aspiring Data Analyst & Web Developer">
+   <meta property="og:description" content="Turning raw data into real-world decisions. Explore my projects and skills.">
+   <!-- TODO: after hosting, replace with your real absolute URLs (og:image ideally 1200x630) -->
+   <meta property="og:url" content="https://your-domain.com">
+   <meta property="og:image" content="https://your-domain.com/assets/img/og-image.png">
+
+   <!-- TODO: after hosting, uncomment and set your live URL -->
+   <!-- <link rel="canonical" href="https://your-domain.com"> -->
+
+   <!--=============== FAVICON ===============-->
+   <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+
+   <!--=============== GOOGLE FONTS (preconnected = faster than @import) ===============-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css">
+
+   <!--=============== SWIPER CSS ===============-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <!-- Flags JS availability early (powers the scroll-reveal styles below) -->
+   <script>document.documentElement.classList.add('js')</script>
+
+   <title>Yash Dhiman | Aspiring Data Analyst &amp; Web Developer</title>
+</head>
+<body>
+   <a href="#main-content" class="skip-link">Skip to content</a>
+
+   <!--==================== HEADER & NAV ====================-->
+   <header class="header" id="header">
+      <nav class="nav container">
+         <a href="#home" class="nav__logo">Yash Dhiman</a>
+
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="#home" class="nav__link active-link">Home</a></li>
+               <li><a href="#work" class="nav__link">Works</a></li>
+               <li><a href="#services" class="nav__link">My Services</a></li>
+               <li><a href="#skills" class="nav__link">Skills</a></li>
+               <li><a href="#contact" class="nav__contact">Contact me</a></li>
+            </ul>
+
+            <button class="nav__close" id="nav-close" aria-label="Close menu">
+               <i class="ri-close-large-line"></i>
+            </button>
+         </div>
+
+         <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+            <i class="ri-menu-line"></i>
+         </button>
+      </nav>
+   </header>
+
+   <!--==================== MAIN ====================-->
+   <main class="main" id="main-content">
+
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+         <div class="blob-small" aria-hidden="true"></div>
+         <div class="blob-small" aria-hidden="true"></div>
+
+         <div class="home__container container grid">
+            <div class="home__data">
+               <h1 class="home__title">
+                  Hi! I'm Yash —<br><span id="home-typed"></span>
+               </h1>
+               <p class="home__subtitle">Turning raw data into real-world decisions.</p>
+               <p class="home__description">
+                  I'm a B.Tech CSE student passionate about data and problem-solving.
+                  I turn raw numbers into meaningful insights — and build the websites
+                  that bring them to life.
+               </p>
+            </div>
+
+            <div class="home__images">
+               <div class="home__box-1" aria-hidden="true"></div>
+               <div class="home__box-2" aria-hidden="true"></div>
+               <div class="home__box-3" aria-hidden="true"></div>
+               <div class="home__circle">
+
+                  <img src="assets/img/ThumbsUp.png" alt="Portrait of Yash Dhiman" class="home__img" style="width: 230px; max-width: none; left: auto; right: auto; transform: translateX(-50%); bottom: 2.5rem;">
+                  <span class="home__text" id="home-text">CODE - ANALYZE - CREATE -</span>
+                  <a href="#about" class="home__arrow" aria-label="Go to About section">
+                     <i class="ri-arrow-down-line"></i>
+                  </a>
+               </div>   
+
+               <div class="blob-big" aria-hidden="true"></div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about section" id="about">
+         <div class="about__container container grid">
+            <h2 class="about__title reveal">
+               A passionate and disciplined CSE student with a strong interest in
+               <span>data analysis</span> and <span>web development</span>.
+               I enjoy solving problems, exploring new technologies, and turning
+               ideas into <span>practical solutions</span>.
+            </h2>
+
+            <div class="about__info reveal">
+               <p class="about__description">
+                  If you have a project in mind, feel free to <span>explore my work</span>
+                  and <span>get in touch</span>. I'm always open to new opportunities,
+                  collaborations, and interesting ideas.
+               </p>
+
+               <a href="#contact" class="about__button button">
+                  <span>Contact me</span>
+                  <i class="ri-arrow-right-line"></i>
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== WORK ====================-->
+      <section class="work section" id="work">
+         <h2 class="section__title reveal">View My <span>Work</span></h2>
+
+         <div class="work__container container grid">
+            <div class="work__swiper swiper">
+               <div class="swiper-wrapper">
+
+                  <!-- TODO: replace link, name & description with your real project -->
+                  <article class="work__card swiper-slide">
+                     <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="work__link">
+                        <img src="assets/img/MedMind.webp" alt="Restaurant website project preview" class="work__img">
+                        <div class="work__arrow"><i class="ri-arrow-right-up-line"></i></div>
+                     </a>
+                     <div class="work__data">
+                     <span class="work__number">01</span>
+                     <h3 class="work__name">MedMind</h3>
+                     <span class="work__category">Healthcare · Web App</span>
+                     <p class="work__description">
+                        A healthcare platform for tracking medications, setting reminders, and managing basic health records.
+                     </p>
+                     <ul class="work__stack">
+                     <li>MERN</li>
+                     <li>MongoDB</li>
+                     </ul>
+                     </div>
+                     <div class="blob-big" aria-hidden="true"></div>
+                  </article>
+
+                  <!-- TODO: replace link, name & description with your real project -->
+                  <article class="work__card swiper-slide">
+                     <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="work__link">
+                        <img src="assets/img/HelperX.webp" alt="Agriculture design project preview" class="work__img">
+                        <div class="work__arrow"><i class="ri-arrow-right-up-line"></i></div>
+                     </a>
+                     <div class="work__data">
+                     <span class="work__number">02</span>
+                     <h3 class="work__name">HelperX</h3>
+                     <span class="work__category">Service Marketplace · Web App</span>
+                     <p class="work__description">
+                     A platform connecting users with local service providers for repairs, cleaning, and other everyday tasks.
+                     </p>
+                     <ul class="work__stack">
+                     <li>MERN</li>
+                     <li>Socket.io</li>
+                      </ul>
+                     </div>
+                     <div class="blob-big" aria-hidden="true"></div>
+                  </article>
+
+                  <!-- TODO: replace link, name & description with your real project -->
+                  <article class="work__card swiper-slide">
+                     <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="work__link">
+                        <img src="assets/img/Spendly.webp" alt="Chicken shop website project preview" class="work__img">
+                        <div class="work__arrow"><i class="ri-arrow-right-up-line"></i></div>
+                     </a>
+                     <div class="work__data">
+   <span class="work__number">03</span>
+   <h3 class="work__name">Spendly</h3>
+   <span class="work__category">Finance · Dashboard</span>
+   <p class="work__description">
+      A personal expense tracker with budgets, spending categories, monthly reports, and interactive charts.
+   </p>
+   <ul class="work__stack">
+      <li>React</li>
+      <li>Node.js</li>
+      <li>MongoDB</li>
+   </ul>
+</div>
+<div class="blob-big" aria-hidden="true"></div>
+                  </article>
+
+                  <!-- TODO: replace link, name & description with your real project -->
+                  <article class="work__card swiper-slide">
+                     <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="work__link">
+                        <img src="assets/img/TaskFlow.jpeg" alt="Mining system project preview" class="work__img">
+                        <div class="work__arrow"><i class="ri-arrow-right-up-line"></i></div>
+                     </a>
+                     <div class="work__data">
+   <span class="work__number">04</span>
+   <h3 class="work__name">TaskFlow</h3>
+   <span class="work__category">Productivity · SaaS</span>
+   <p class="work__description">
+      A task management app featuring Kanban boards, deadlines, project tracking, and team collaboration.
+   </p>
+   <ul class="work__stack">
+      <li>MERN</li>
+      <li>Socket.io</li>
+   </ul>
+</div>
+<div class="blob-big" aria-hidden="true"></div>
+                  </article>
+
+                  <!-- TODO: replace link, name & description with your real project -->
+                  <article class="work__card swiper-slide">
+                     <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="work__link">
+                        <img src="assets/img/InsightIQ.jpeg" alt="SEO medicine website project preview" class="work__img">
+                        <div class="work__arrow"><i class="ri-arrow-right-up-line"></i></div>
+                     </a>
+                     <div class="work__data">
+   <span class="work__number">05</span>
+   <h3 class="work__name">InsightIQ</h3>
+   <span class="work__category">Analytics · Data Visualization</span>
+   <p class="work__description">
+      A dashboard that turns sample business data into interactive charts, KPIs, sales trends, and actionable insights.
+   </p>
+   <ul class="work__stack">
+      <li>React</li>
+      <li>SQL</li>
+      <li>Power BI</li>
+      <li>Chart.js</li>
+   </ul>
+</div>
+<div class="blob-big" aria-hidden="true"></div>
+                  </article>
+
+               </div>
+               <div class="swiper-pagination"></div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== SERVICES ====================-->
+      <section class="services section" id="services">
+         <h2 class="section__title reveal"><span>My</span> Services</h2>
+
+         <div class="services__container container grid">
+
+            <article class="services__card services-open reveal">
+               <button class="services__button" aria-expanded="true" aria-controls="services-data-1">
+                  <i class="ri-seo-fill services__icon"></i>
+                  <h3 class="services__name">Data Analysis</h3>
+                  <div class="services__arrow"><i class="ri-arrow-down-s-line"></i></div>
+               </button>
+               <div class="services__data" id="services-data-1">
+                  <p class="services__description">
+                     I turn raw, messy data into <span>clear, actionable insights</span> —
+                     cleaning, exploring, and analyzing datasets to support
+                     <span>smarter decisions</span>.
+                  </p>
+                  <ul class="services__list">
+                     <li class="services__item">Excel</li>
+                     <li class="services__item">Data Cleaning</li>
+                     <li class="services__item">SQL</li>
+                     <li class="services__item">Insight Reports</li>
+                  </ul>
+               </div>
+            </article>
+
+            <article class="services__card reveal">
+               <button class="services__button" aria-expanded="false" aria-controls="services-data-2">
+                  <i class="ri-pen-nib-fill services__icon"></i>
+                  <h3 class="services__name">Data Visualization</h3>
+                  <div class="services__arrow"><i class="ri-arrow-down-s-line"></i></div>
+               </button>
+               <div class="services__data" id="services-data-2">
+                  <p class="services__description">
+                     I design <span>clear dashboards and visual reports</span> that make
+                     complex data easy to understand at a glance.
+                  </p>
+                  <ul class="services__list">
+                     <li class="services__item">Power BI</li>
+                     <li class="services__item">Tableau</li>
+                     <li class="services__item">Excel Charts</li>
+                     <li class="services__item">Dashboards</li>
+                  </ul>
+               </div>
+            </article>
+
+            <article class="services__card reveal">
+               <button class="services__button" aria-expanded="false" aria-controls="services-data-3">
+                  <i class="ri-database-2-fill services__icon"></i>
+                  <h3 class="services__name">SQL &amp; Databases</h3>
+                  <div class="services__arrow"><i class="ri-arrow-down-s-line"></i></div>
+               </button>
+               <div class="services__data" id="services-data-3">
+                  <p class="services__description">
+                     I write <span>SQL queries and design databases</span> to store,
+                     join, and retrieve the data behind every good analysis.
+                  </p>
+                  <ul class="services__list">
+                     <li class="services__item">SQL Queries</li>
+                     <li class="services__item">MongoDB</li>
+                     <li class="services__item">Database Design</li>
+                     <li class="services__item">Data Extraction</li>
+                  </ul>
+               </div>
+            </article>
+
+            <article class="services__card reveal">
+               <button class="services__button" aria-expanded="false" aria-controls="services-data-4">
+                  <i class="ri-code-box-fill services__icon"></i>
+                  <h3 class="services__name">Web Development</h3>
+                  <div class="services__arrow"><i class="ri-arrow-down-s-line"></i></div>
+               </button>
+               <div class="services__data" id="services-data-4">
+                  <p class="services__description">
+                     I build <span>responsive, modern websites</span> from scratch —
+                     clean code, fast load times, and a thoughtful user experience.
+                  </p>
+                  <ul class="services__list">
+                     <li class="services__item">HTML</li>
+                     <li class="services__item">CSS</li>
+                     <li class="services__item">JavaScript</li>
+                     <li class="services__item">Responsive Design</li>
+                  </ul>
+               </div>
+            </article>
+
+         </div>
+      </section>
+
+      <!--==================== SKILLS ====================-->
+      <section class="skills section" id="skills">
+         <h2 class="section__title reveal">My <span>Skills</span></h2>
+
+         <p class="skills__description reveal">
+            My skills are built through continuous learning, hands-on practice, and
+            consistent effort. I focus on developing practical skills and staying
+            updated with the technologies I work with.
+         </p>
+
+         <div class="skills__container container grid">
+
+            <article class="skills__card reveal">
+               <div class="skills__profession">
+                  <i class="ri-layout-3-line skills__icon"></i>
+                  <h2 class="skills__title">Data Analytics</h2>
+               </div>
+               <ul class="skills__list">
+                  <li class="skills__item">
+                     <img src="assets/img/analysis_2318736.svg" alt="Excel icon" class="skills__img">
+                     <span class="skills__name">Excel</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/Sql_data_base_with_logo.svg" alt="SQL icon" class="skills__img">
+                     <span class="skills__name">SQL</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/New_Power_BI_Logo.svg" alt="Power BI icon" class="skills__img">
+                     <span class="skills__name">Power BI</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/Tableau-Icon--Streamline-Svg-Logos.svg" alt="Tableau icon" class="skills__img">
+                     <span class="skills__name">Tableau</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/Clean-Broom-Wipe--Streamline-Flex.svg" alt="Data cleaning icon" class="skills__img">
+                     <span class="skills__name">Data Cleaning</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/data-visualization-data-scientist-visualize-data-svgrepo-com.svg" alt="Data visualization icon" class="skills__img">
+                     <span class="skills__name">Data Visualization</span>
+                  </li>
+               </ul>
+               <div class="blob-small" aria-hidden="true"></div>
+            </article>
+
+            <article class="skills__card reveal">
+               <div class="skills__profession">
+                  <i class="ri-code-box-fill skills__icon"></i>
+                  <h2 class="skills__title">Frontend</h2>
+               </div>
+               <ul class="skills__list">
+                  <li class="skills__item">
+                     <i class="ri-html5-fill" aria-hidden="true"></i>
+                     <span class="skills__name">HTML</span>
+                  </li>
+                  <li class="skills__item">
+                     <i class="ri-css3-fill" aria-hidden="true"></i>
+                     <span class="skills__name">CSS</span>
+                  </li>
+                  <li class="skills__item">
+                     <i class="ri-javascript-fill" aria-hidden="true"></i>
+                     <span class="skills__name">JavaScript</span>
+                  </li>
+               </ul>
+               <div class="blob-small" aria-hidden="true"></div>
+            </article>
+
+            <article class="skills__card reveal">
+               <div class="skills__profession">
+                  <i class="ri-database-line skills__icon"></i>
+                  <h2 class="skills__title">Backend</h2>
+               </div>
+               <ul class="skills__list">
+                  <li class="skills__item">
+                     <img src="assets/img/mongodb-svgrepo-com.svg" alt="MongoDB icon" class="skills__img">
+                     <span class="skills__name">MongoDB</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/express-svgrepo-com.svg" alt="Express.js icon" class="skills__img">
+                     <span class="skills__name">Express.js</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/nodejs01-svgrepo-com.svg" alt="Node.js icon" class="skills__img">
+                     <span class="skills__name">Node.js</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/Sql_data_base_with_logo.svg" alt="SQL icon" class="skills__img">
+                     <span class="skills__name">SQL</span>
+                  </li>
+               </ul>
+               <div class="blob-small" aria-hidden="true"></div>
+            </article>
+
+            <article class="skills__card reveal">
+               <div class="skills__profession">
+                  <i class="ri-pencil-ruler-2-line skills__icon"></i>
+                  <h2 class="skills__title">Design</h2>
+               </div>
+               <ul class="skills__list">
+                  <li class="skills__item">
+                     <img src="assets/img/skills-design-1.svg" alt="Figma icon" class="skills__img">
+                     <span class="skills__name">Figma</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/web-design_13191231.svg" alt="UI design icon" class="skills__img">
+                     <span class="skills__name">UI Design</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/responsive-design-svgrepo-com.svg" alt="Responsive design icon" class="skills__img">
+                     <span class="skills__name">Responsive Design</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/wireframe.svg" alt="Wireframing icon" class="skills__img">
+                     <span class="skills__name">Wireframing</span>
+                  </li>
+                  <li class="skills__item">
+                     <img src="assets/img/design-systems-svgrepo-com.svg" alt="Design systems icon" class="skills__img">
+                     <span class="skills__name">Design Systems</span>
+                  </li>
+               </ul>
+               <div class="blob-small" aria-hidden="true"></div>
+            </article>
+
+         </div>
+      </section>
+
+      <!--==================== CONTACT ====================-->
+      <section class="contact section" id="contact">
+         <h2 class="section__title reveal">Contact <span>Me</span></h2>
+
+         <div class="contact__container container grid">
+            <form action="" class="contact__form grid reveal" id="contact-form">
+               <div class="contact__group">
+                  <input type="text" id="name" name="user_name" required autocomplete="name" class="contact__input">
+                  <label for="name" class="contact__label">Name</label>
+               </div>
+
+               <div class="contact__group">
+                  <input type="email" id="email" name="user_email" required autocomplete="email" class="contact__input">
+                  <label for="email" class="contact__label">Email</label>
+               </div>
+
+               <div class="contact__group">
+                  <textarea name="user_message" id="message" required class="contact__input contact__area"></textarea>
+                  <label for="message" class="contact__label">Message</label>
+               </div>
+
+               <button type="submit" class="contact__button button">
+                  <span>Send Message</span>
+                  <i class="ri-arrow-right-line"></i>
+               </button>
+
+               <p class="contact__message" id="contact-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="contact__content grid reveal">
+
+               <a href="mailto:yashrajdhiman007@gmail.com" class="contact__link">
+                  <div class="contact__info">
+                     <i class="ri-mail-line contact__icon"></i>
+                     <div class="contact__text">
+                        <h3 class="contact__title">Email</h3>
+                        <address class="contact__address">yashrajdhiman007@gmail.com</address>
+                     </div>
+                  </div>
+                  <div class="contact__arrow"><i class="ri-arrow-right-up-line"></i></div>
+               </a>
+
+               <a href="tel:+917505095752" class="contact__link">
+                  <div class="contact__info">
+                     <i class="ri-phone-line contact__icon"></i>
+                     <div class="contact__text">
+                        <h3 class="contact__title">Phone</h3>
+                        <address class="contact__address">+91 75050 95752</address>
+                     </div>
+                  </div>
+                  <div class="contact__arrow"><i class="ri-arrow-right-up-line"></i></div>
+               </a>
+
+               <a href="https://maps.app.goo.gl/JieHd89Nb4NgEqG2A" target="_blank" rel="noopener noreferrer" class="contact__link">
+                  <div class="contact__info">
+                     <i class="ri-map-pin-line contact__icon"></i>
+                     <div class="contact__text">
+                        <h3 class="contact__title">Location</h3>
+                        <address class="contact__address">Dehradun, Uttarakhand, India</address>
+                     </div>
+                  </div>
+                  <div class="contact__arrow"><i class="ri-arrow-right-up-line"></i></div>
+               </a>
+
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <h2 class="footer__title">
+            Let's collaborate and build something amazing together.
+         </h2>
+
+         <div class="footer__content">
+            <ul class="footer__links">
+               <li><a href="#work" class="footer__link">Work</a></li>
+               <li><a href="#services" class="footer__link">Services</a></li>
+               <li><a href="#skills" class="footer__link">Skills</a></li>
+            </ul>
+
+            <ul class="footer__social">
+               <li>
+                  <a href="https://www.instagram.com/yashhxdhiman/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+                     <i class="ri-instagram-line"></i>
+                  </a>
+               </li>
+               <li>
+                  <a href="https://www.linkedin.com/in/yash-r-dhiman-62083430b/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
+                     <i class="ri-linkedin-box-line"></i>
+                  </a>
+               </li>
+               <li>
+                  <a href="https://github.com/yashrdhiman" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub">
+                     <i class="ri-github-line"></i>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+
+      <small class="footer__copy">&#169; <span id="footer-year"></span> Yash Dhiman. All rights reserved.</small>
+
+      <div class="blob-big" aria-hidden="true"></div>
+   </footer>
+
+   <!--========== SCROLL UP ==========-->
+   <a href="#home" class="scrollup" id="scroll-up" aria-label="Scroll back to top">
+      <i class="ri-arrow-up-line"></i>
+   </a>
+
+   <!--=============== TYPED JS ===============-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/3.0.0/typed.umd.min.js"></script>
+
+   <!--=============== SWIPER JS ===============-->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+   <!--=============== EMAIL JS ===============-->
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+   <!--=============== MAIN JS (ScrollReveal removed — replaced by IntersectionObserver) ===============-->
+   <script src="assets/js/main.js"></script>
+</body>
+</html>
