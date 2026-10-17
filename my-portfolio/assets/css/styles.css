@@ -1516,6 +1516,81 @@ textarea:focus-visible {
     width: 260px;
     bottom: 3.5rem;
   }
+  /*=============== SKILLS ACCORDION ===============*/
+.skills__card {
+  flex-direction: column;
+  align-items: stretch;
+  row-gap: 0;
+  column-gap: 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.skills__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--white-color);
+  text-align: left;
+  z-index: 5;
+}
+
+.skills__profession {
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.skills__arrow {
+  width: 32px;
+  height: 32px;
+  background-color: hsla(var(--hue), 60%, 65%, .18);
+  border: 1px solid var(--glass-border);
+  color: var(--white-color);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.skills__arrow i {
+  transition: rotate .4s;
+}
+
+.skills__card.skills-open .skills__arrow i {
+  rotate: 180deg;
+}
+
+.skills__data {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .5s ease, opacity .4s ease;
+}
+
+.skills__card.skills-open .skills__data {
+  max-height: 600px;
+  opacity: 1;
+}
+
+.skills__list {
+  justify-content: flex-start;
+  margin-top: 1.25rem;
+}
+
+@media (width >= 1150px) {
+  .skills__card {
+    padding: 1.75rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills__arrow i,
+  .skills__data {
+    transition: none;
+  }
+}
 
   .home__circle {
     right: -1.5rem;
