@@ -190,3 +190,48 @@ if ('IntersectionObserver' in window) {
    /* Very old browser: show everything immediately */
    revealElements.forEach(element => element.classList.add('reveal-visible'))
 }
+
+/*=============== SKILLS ACCORDION (built automatically) ===============*/
+const skillsCards = document.querySelectorAll('.skills__card')
+
+skillsCards.forEach(card => {
+   const profession = card.querySelector('.skills__profession')
+   const list = card.querySelector('.skills__list')
+   if (!profession || !list) return
+
+   // Wrap the heading in a button and add the arrow
+   const button = document.createElement('button')
+   button.type = 'button'
+   button.className = 'skills__button'
+   button.setAttribute('aria-expanded', 'false')
+
+   const arrow = document.createElement('div')
+   arrow.className = 'skills__arrow'
+   arrow.innerHTML = '<i class="ri-arrow-down-s-line"></i>'
+
+   card.insertBefore(button, profession)
+   button.appendChild(profession)
+   button.appendChild(arrow)
+
+   // Wrap the list in the collapsible area
+   const data = document.createElement('div')
+   data.className = 'skills__data'
+   card.insertBefore(data, list)
+   data.appendChild(list)
+
+   // Toggle (opening one closes the others, like Services)
+   button.addEventListener('click', () => {
+      const isOpen = card.classList.contains('skills-open')
+
+      skillsCards.forEach(other => {
+         other.classList.remove('skills-open')
+         const otherButton = other.querySelector('.skills__button')
+         if (otherButton) otherButton.setAttribute('aria-expanded', 'false')
+      })
+
+      if (!isOpen) {
+         card.classList.add('skills-open')
+         button.setAttribute('aria-expanded', 'true')
+      }
+   })
+})
