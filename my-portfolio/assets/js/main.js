@@ -235,3 +235,11 @@ skillsCards.forEach(card => {
       }
    })
 })
+/*=============== SKILLS: OPEN FIRST CARD BY DEFAULT ===============*/
+const firstSkillsCard = document.querySelector('.skills__card')
+
+if (firstSkillsCard) {
+   firstSkillsCard.classList.add('skills-open')
+   const firstSkillsButton = firstSkillsCard.querySelector('.skills__button')
+   if (firstSkillsButton) firstSkillsButton.setAttribute('aria-expanded', 'true')
+}
