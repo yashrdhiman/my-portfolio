@@ -1,9 +1,30 @@
-/*=============== VARIABLES CSS ===============*/
+/* ==========================================================
+   Yash Dhiman | Portfolio
+   Glassmorphism dark theme
+
+   Contents
+   1.  Variables
+   2.  Base
+   3.  Reusable classes
+   4.  Header & navigation
+   5.  Home
+   6.  Button
+   7.  About
+   8.  Work
+   9.  Services
+   10. Skills
+   11. Contact
+   12. Footer
+   13. Scrollbar & scroll-up
+   14. Scroll reveal
+   15. Fallbacks, breakpoints, reduced motion
+   ========================================================== */
+
+/*=============== 1. VARIABLES ===============*/
 :root {
   --header-height: 3.5rem;
 
-  /*========== Colors (HSL) ==========*/
-  /* Change --hue to re-theme the entire site */
+  /* Colors (HSL). Change --hue to re-theme the whole site */
   --hue: 255;
   --first-color: hsl(var(--hue), 80%, 65%);
   --gradient-color: linear-gradient(90deg,
@@ -14,12 +35,9 @@
   --white-color: hsl(var(--hue), 24%, 98%);
   --black-color: hsl(var(--hue), 12%, 8%);
   --text-color: hsl(var(--hue), 4%, 70%);
-  --text-color-light: hsl(var(--hue), 8%, 60%);
   --body-color: hsl(var(--hue), 12%, 4%);
-  --container-color: hsl(var(--hue), 8%, 10%);
-  --border-color: hsl(var(--hue), 8%, 20%);
 
-  /*========== Glassmorphism tokens ==========*/
+  /* Glass tokens */
   --glass-bg: hsla(var(--hue), 40%, 92%, .06);
   --glass-bg-hover: hsla(var(--hue), 40%, 92%, .11);
   --glass-border: hsla(var(--hue), 50%, 100%, .12);
@@ -28,7 +46,7 @@
   --glass-highlight: inset 0 1px 0 hsla(var(--hue), 50%, 100%, .10);
   --glass-blur: 16px;
 
-  /*========== Font & typography ==========*/
+  /* Typography */
   --body-font: "Poppins", sans-serif;
   --second-font: "Syne", sans-serif;
   --biggest-font-size: 2rem;
@@ -39,16 +57,12 @@
   --normal-font-size: .938rem;
   --small-font-size: .813rem;
   --smaller-font-size: .75rem;
-
-  --font-regular: 400;
-  --font-medium: 500;
   --font-semi-bold: 600;
 
   --z-tooltip: 10;
   --z-fixed: 100;
 }
 
-/* Responsive typography */
 @media (width >= 1150px) {
   :root {
     --biggest-font-size: 5rem;
@@ -62,7 +76,7 @@
   }
 }
 
-/*=============== BASE ===============*/
+/*=============== 2. BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -88,7 +102,7 @@ body {
   color: var(--text-color);
 }
 
-/* Ambient glows: the "light" behind the glass (fixed, slow drift) */
+/* Ambient glows behind the glass */
 body::before,
 body::after {
   content: '';
@@ -108,8 +122,7 @@ body::before {
   animation: glow-drift 22s ease-in-out infinite alternate;
 }
 
-/* NOTE: second glow uses a fixed cyan hue for contrast —
-   change 200 below to any hue you like */
+/* Second glow uses a fixed cyan hue (200) for contrast */
 body::after {
   width: 40vmax;
   height: 40vmax;
@@ -147,7 +160,7 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--black-color);
 }
 
-/* Visible keyboard focus for accessibility */
+/* Visible keyboard focus */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -156,7 +169,7 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
+/*=============== 3. REUSABLE CLASSES ===============*/
 .container {
   max-width: 1120px;
   margin-inline: 1rem;
@@ -186,7 +199,7 @@ textarea:focus-visible {
   overflow: hidden;
 }
 
-/* Skip link (keyboard users) */
+/* Skip link for keyboard users */
 .skip-link {
   position: fixed;
   top: -100%;
@@ -204,7 +217,7 @@ textarea:focus-visible {
   top: 1rem;
 }
 
-/*=============== BLOBS (decorative) ===============*/
+/* Decorative blurred blobs */
 .blob-small,
 .blob-big {
   background-color: var(--first-color);
@@ -226,16 +239,16 @@ textarea:focus-visible {
   filter: blur(100px);
 }
 
-/*=============== HEADER & NAV ===============*/
+/*=============== 4. HEADER & NAV ===============*/
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   background-color: transparent;
+  border-bottom: 1px solid transparent;
   z-index: var(--z-fixed);
   transition: background-color .4s, border-color .4s;
-  border-bottom: 1px solid transparent;
 }
 
 /* Glass bar once the page is scrolled */
@@ -267,7 +280,7 @@ textarea:focus-visible {
   cursor: pointer;
 }
 
-/* Navigation for mobile devices (glass drawer) */
+/* Mobile menu (glass drawer) */
 @media (width <= 1150px) {
   .nav__menu {
     position: fixed;
@@ -284,7 +297,6 @@ textarea:focus-visible {
     transition: right .4s;
   }
 
-  /* Fallback for browsers without backdrop-filter */
   @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
     .nav__menu {
       background-color: hsla(var(--hue), 18%, 8%, .94);
@@ -353,12 +365,11 @@ textarea:focus-visible {
   cursor: pointer;
 }
 
-/* Show menu */
 .show-menu {
   right: 0;
 }
 
-/*=============== HOME SECTION ===============*/
+/*=============== 5. HOME ===============*/
 .home {
   position: relative;
 }
@@ -375,52 +386,67 @@ textarea:focus-visible {
 
 .home__container {
   padding-block: 2.5rem 3rem;
-  row-gap: 7rem;
+  row-gap: 4rem;
 }
 
 .home__data {
   text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
   color: var(--white-color);
 }
 
 .home__title {
   font-size: clamp(1.4rem, 6vw, 2rem);
-  margin-bottom: .5rem;
+  line-height: 1.25;
+  margin-bottom: .75rem;
+  text-wrap: balance;
 }
 
+/* Typed text uses Poppins: Syne's "g" looks cut off */
 .home__title span {
   color: var(--first-color);
+  font-family: var(--body-font);
 }
 
 .home__subtitle {
   font-size: var(--h3-font-size);
-  color: var(--text-color-light);
-  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: var(--white-color);
+  margin: 1.5rem 0 1rem;
+  text-wrap: balance;
 }
 
 .home__description {
-  color: var(--text-color);
-  max-width: 480px;
+  max-width: 520px;
   margin-inline: auto;
+  line-height: 1.7;
+  color: var(--white-color);
+  text-wrap: balance;
 }
 
-/* FIX: removed margin-right so the photo group is truly centered */
+/* Photo group: fixed size, centered by construction */
 .home__images {
   position: relative;
+  width: 250px;
+  height: 320px;
+  margin-inline: auto;
   justify-self: center;
-  margin-right: 0;
 }
 
-/* Glass decorative boxes */
+/* Glass decorative boxes behind the photo */
 .home__box-1,
 .home__box-2,
 .home__box-3 {
+  position: absolute;
   width: 210px;
   height: 250px;
   border-radius: 1.5rem;
 }
 
 .home__box-1 {
+  top: 3.5rem;
+  left: 0;
   background-color: var(--glass-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-highlight);
@@ -429,36 +455,34 @@ textarea:focus-visible {
 }
 
 .home__box-2 {
+  top: 4.25rem;
+  left: .75rem;
+  rotate: 5deg;
   background-color: hsla(var(--hue), 40%, 92%, .12);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-highlight);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  position: absolute;
-  left: .75rem;
-  bottom: .75rem;
-  rotate: 5deg;
 }
 
 .home__box-3 {
+  top: 5rem;
+  left: 1.5rem;
+  rotate: 10deg;
   background: linear-gradient(180deg,
       hsl(var(--hue), 75%, 85%) 0%,
       hsl(var(--hue), 75%, 60%) 100%);
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  rotate: 10deg;
 }
 
-/* FIX: image anchored to the horizontal center instead of right: -1.25rem */
+/* Photo: centered with left/right 0 + auto margins */
 .home__img {
   position: absolute;
-  width: 240px;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  width: 220px;
   max-width: none;
-  bottom: 2.5rem;
-  right: auto;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-inline: auto;
   -webkit-mask-image: linear-gradient(to bottom,
       hsla(var(--hue), 75%, 60%) 70%,
       transparent 100%);
@@ -467,10 +491,18 @@ textarea:focus-visible {
       transparent 100%);
 }
 
+.home__images .blob-big {
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  justify-self: center;
+}
+
+/* Rotating text circle */
 .home__circle {
   position: absolute;
-  right: -2rem;
-  bottom: -3.5rem;
+  right: -1.25rem;
+  bottom: -2.75rem;
   width: 100px;
   height: 100px;
   border: 20px solid hsla(var(--hue), 30%, 90%, .15);
@@ -504,12 +536,12 @@ textarea:focus-visible {
 }
 
 .home__text {
-  z-index: 10;
-  color: var(--white-color);
-  font: var(--font-semi-bold) var(--smaller-font-size) var(--second-font);
   position: absolute;
   width: 100px;
   height: 100px;
+  z-index: 10;
+  color: var(--white-color);
+  font: var(--font-semi-bold) var(--smaller-font-size) var(--second-font);
   animation: rotate-text 8s linear infinite;
 }
 
@@ -520,19 +552,12 @@ textarea:focus-visible {
   top: 5px;
 }
 
-.home__images .blob-big {
-  top: -1.5rem;
-  left: 0;
-  right: 0;
-  justify-self: center;
-}
-
 @keyframes rotate-text {
-  0% { transform: rotate(0); }
-  100% { transform: rotate(360deg); }
+  from { transform: rotate(0); }
+  to   { transform: rotate(360deg); }
 }
 
-/*=============== BUTTON ===============*/
+/*=============== 6. BUTTON ===============*/
 .button {
   background: var(--gradient-color);
   color: var(--black-color);
@@ -560,7 +585,7 @@ textarea:focus-visible {
   transform: translateX(.5rem);
 }
 
-/*=============== ABOUT SECTION ===============*/
+/*=============== 7. ABOUT ===============*/
 .about__container {
   color: var(--white-color);
   text-align: center;
@@ -570,7 +595,8 @@ textarea:focus-visible {
   font-size: var(--h1-font-size);
 }
 
-.about__title span {
+.about__title span,
+.about__description span {
   color: var(--first-color);
 }
 
@@ -578,15 +604,11 @@ textarea:focus-visible {
   margin-bottom: 1.5rem;
 }
 
-.about__description span {
-  color: var(--first-color);
-}
-
 .about__button {
   width: 100%;
 }
 
-/*=============== WORK SECTION (glass cards) ===============*/
+/*=============== 8. WORK (glass cards + Swiper) ===============*/
 .work__card {
   position: relative;
   background-color: var(--glass-bg);
@@ -606,6 +628,12 @@ textarea:focus-visible {
   border-color: var(--glass-border-hover);
 }
 
+.work__card .blob-big {
+  top: 2rem;
+  right: -2rem;
+  z-index: 1;
+}
+
 .work__link {
   position: relative;
   display: block;
@@ -623,6 +651,10 @@ textarea:focus-visible {
   transition: transform .4s;
 }
 
+.work__card:hover .work__img {
+  transform: scale(1.1);
+}
+
 .work__arrow {
   position: absolute;
   top: 1rem;
@@ -637,6 +669,10 @@ textarea:focus-visible {
   color: var(--black-color);
   opacity: 0;
   transition: opacity .4s;
+}
+
+.work__card:hover .work__arrow {
+  opacity: 1;
 }
 
 .work__data {
@@ -656,21 +692,6 @@ textarea:focus-visible {
   margin-bottom: .5rem;
 }
 
-.work__card:hover .work__img {
-  transform: scale(1.1);
-}
-
-.work__card:hover .work__arrow {
-  opacity: 1;
-}
-
-.work__card .blob-big {
-  top: 2rem;
-  right: -2rem;
-  z-index: 1;
-}
-
-/* Swiper */
 .work__swiper {
   width: 100%;
   padding-bottom: 4rem;
@@ -691,7 +712,7 @@ textarea:focus-visible {
   opacity: 1;
 }
 
-/*=============== SERVICES SECTION (glass panels) ===============*/
+/*=============== 9. SERVICES (accordion) ===============*/
 .services__container {
   row-gap: 2rem;
 }
@@ -730,15 +751,15 @@ textarea:focus-visible {
 .services__arrow {
   width: 32px;
   height: 32px;
-  background-color: hsla(var(--hue), 60%, 65%, .18);
-  border: 1px solid var(--glass-border);
-  color: var(--white-color);
-  border-radius: 50%;
-  font-size: 1.5rem;
-  display: grid;
-  place-items: center;
   margin-left: auto;
   flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background-color: hsla(var(--hue), 60%, 65%, .18);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--white-color);
+  font-size: 1.5rem;
 }
 
 .services__arrow i {
@@ -785,7 +806,7 @@ textarea:focus-visible {
   font: var(--font-semi-bold) var(--small-font-size) var(--second-font);
 }
 
-/*=============== SKILLS SECTION (glass panels + chips) ===============*/
+/*=============== 10. SKILLS (accordion + chips) ===============*/
 .skills__description {
   margin: 0 1rem 3rem;
   text-align: center;
@@ -793,16 +814,15 @@ textarea:focus-visible {
 
 .skills__card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: var(--glass-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
   backdrop-filter: blur(var(--glass-blur)) saturate(150%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-highlight), var(--glass-shadow);
-  padding: 1.5rem 1.25rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
   overflow: hidden;
   transition: border-color .4s;
 }
@@ -811,11 +831,31 @@ textarea:focus-visible {
   border-color: var(--glass-border-hover);
 }
 
+.skills__card .blob-small {
+  z-index: 1;
+  top: -5rem;
+  left: 0;
+  right: 0;
+  justify-self: center;
+}
+
+/* Header button (created by main.js) */
+.skills__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--white-color);
+  text-align: left;
+  z-index: 5;
+}
+
 .skills__profession {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   column-gap: .5rem;
-  justify-content: center;
   z-index: 5;
 }
 
@@ -828,16 +868,50 @@ textarea:focus-visible {
   font-size: var(--h2-font-size);
 }
 
+.skills__arrow {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background-color: hsla(var(--hue), 60%, 65%, .18);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--white-color);
+  font-size: 1.5rem;
+}
+
+.skills__arrow i {
+  transition: rotate .4s;
+}
+
+.skills__card.skills-open .skills__arrow i {
+  rotate: 180deg;
+}
+
+/* Collapsible area (created by main.js) */
+.skills__data {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .5s ease, opacity .4s ease;
+}
+
+.skills__card.skills-open .skills__data {
+  max-height: 600px;
+  opacity: 1;
+}
+
 .skills__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: .75rem;
+  margin-top: 1.25rem;
   z-index: 5;
 }
 
-/* Glass skill chips */
 .skills__item {
   display: flex;
   align-items: center;
@@ -874,15 +948,7 @@ textarea:focus-visible {
   color: var(--white-color);
 }
 
-.skills__card .blob-small {
-  z-index: 1;
-  top: -5rem;
-  left: 0;
-  right: 0;
-  justify-self: center;
-}
-
-/*=============== CONTACT SECTION (glass form) ===============*/
+/*=============== 11. CONTACT ===============*/
 .contact__container {
   row-gap: 4rem;
 }
@@ -916,6 +982,10 @@ textarea:focus-visible {
   background-color: var(--glass-bg-hover);
 }
 
+.contact__input:autofill {
+  transition: background-color 6000s, color 6000s;
+}
+
 .contact__label {
   position: absolute;
   top: 1.25rem;
@@ -929,10 +999,6 @@ textarea:focus-visible {
 .contact__input:focus ~ .contact__label,
 .contact__input:valid ~ .contact__label {
   opacity: 0;
-}
-
-.contact__input:autofill {
-  transition: background-color 6000s, color 6000s;
 }
 
 .contact__area {
@@ -962,8 +1028,10 @@ textarea:focus-visible {
   row-gap: 1rem;
 }
 
-/* Glass contact pills */
 .contact__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--glass-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
   backdrop-filter: blur(var(--glass-blur)) saturate(150%);
@@ -971,9 +1039,6 @@ textarea:focus-visible {
   box-shadow: var(--glass-highlight), var(--glass-shadow);
   padding: 1rem;
   border-radius: 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: var(--white-color);
   transition: border-color .4s;
 }
@@ -984,8 +1049,8 @@ textarea:focus-visible {
 
 .contact__info {
   display: flex;
-  column-gap: .5rem;
   align-items: center;
+  column-gap: .5rem;
 }
 
 .contact__icon {
@@ -1008,15 +1073,15 @@ textarea:focus-visible {
 .contact__arrow {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
   background-color: hsla(var(--hue), 40%, 92%, .08);
   border: 1px solid var(--glass-border);
   border-radius: 50%;
   color: var(--white-color);
   font-size: 1.5rem;
-  display: grid;
-  place-items: center;
   transition: background-color .4s, color .4s, border-color .4s;
-  flex-shrink: 0;
 }
 
 .contact__link:hover .contact__arrow {
@@ -1025,7 +1090,7 @@ textarea:focus-visible {
   color: var(--black-color);
 }
 
-/*=============== FOOTER (glass panel + icons) ===============*/
+/*=============== 12. FOOTER ===============*/
 .footer {
   position: relative;
   padding-block: 5rem 2rem;
@@ -1041,12 +1106,11 @@ textarea:focus-visible {
   text-align: center;
 }
 
-/* Glass panel wrapping links + socials */
 .footer__content {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
   align-items: center;
+  row-gap: 2rem;
   background-color: var(--glass-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
   backdrop-filter: blur(var(--glass-blur)) saturate(150%);
@@ -1079,7 +1143,6 @@ textarea:focus-visible {
   column-gap: 1.5rem;
 }
 
-/* Glass social circles */
 .footer__social-link {
   display: grid;
   place-items: center;
@@ -1117,7 +1180,7 @@ textarea:focus-visible {
   margin-inline: auto;
 }
 
-/*=============== SCROLL BAR ===============*/
+/*=============== 13. SCROLLBAR & SCROLL-UP ===============*/
 ::-webkit-scrollbar {
   width: .6rem;
   background-color: hsl(var(--hue), 8%, 10%);
@@ -1132,21 +1195,20 @@ textarea:focus-visible {
   background-color: hsl(var(--hue), 8%, 40%);
 }
 
-/*=============== SCROLL UP (glass) ===============*/
 .scrollup {
   position: fixed;
   right: 1.25rem;
   bottom: -4rem;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  display: grid;
+  place-items: center;
   background-color: hsla(var(--hue), 40%, 92%, .10);
   border: 1px solid var(--glass-border);
+  border-radius: 50%;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   color: var(--white-color);
-  display: grid;
-  place-items: center;
   font-size: 1.5rem;
   box-shadow: var(--glass-highlight), 0 8px 24px hsla(var(--hue), 80%, 60%, .20);
   z-index: var(--z-tooltip);
@@ -1162,7 +1224,7 @@ textarea:focus-visible {
   bottom: 2rem;
 }
 
-/*=============== SCROLL REVEAL ===============*/
+/*=============== 14. SCROLL REVEAL ===============*/
 .js .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1174,7 +1236,8 @@ textarea:focus-visible {
   transform: none;
 }
 
-/*=============== FALLBACK: no backdrop-filter support ===============*/
+/*=============== 15. FALLBACKS & BREAKPOINTS ===============*/
+/* No backdrop-filter support: use a solid glass color */
 @supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
   .work__card,
   .services__card,
@@ -1187,8 +1250,7 @@ textarea:focus-visible {
   }
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For medium devices */
+/* Medium devices */
 @media (width >= 540px) {
   .nav__menu {
     width: 50%;
@@ -1210,7 +1272,7 @@ textarea:focus-visible {
   }
 }
 
-/* For large devices */
+/* Large devices */
 @media (width >= 1150px) {
   .container {
     margin-inline: auto;
@@ -1236,6 +1298,7 @@ textarea:focus-visible {
     filter: blur(150px);
   }
 
+  /* Nav */
   .nav {
     height: calc(var(--header-height) + 2rem);
   }
@@ -1255,12 +1318,70 @@ textarea:focus-visible {
     column-gap: 4rem;
   }
 
+  /* Home: title on top, text left + photo right inside a glass frame */
   .home__container {
-    grid-template-columns: 800px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 2rem;
+    row-gap: 0;
+    max-width: 1000px;
+    margin-inline: auto;
+    justify-content: stretch;
+  }
+
+  .home__data {
+    display: contents;
   }
 
   .home__title {
+    grid-column: 1 / 3;
+    grid-row: 1;
     font-size: clamp(2rem, 3vw, 3rem);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .home__container::before {
+    content: '';
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    background-color: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
+    border-radius: 2rem;
+    z-index: 0;
+  }
+
+  .home__subtitle {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+    text-align: left;
+    margin: 0 0 1rem 3rem;
+    z-index: 1;
+  }
+
+  .home__description {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    text-align: left;
+    max-width: 440px;
+    margin: 0 0 0 3rem;
+    z-index: 1;
+  }
+
+  .home__images {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    align-self: center;
+    justify-self: center;
+    width: 300px;
+    height: 380px;
+    margin: 2.5rem 0 4rem;
+    z-index: 1;
   }
 
   .home__box-1,
@@ -1270,13 +1391,18 @@ textarea:focus-visible {
     height: 300px;
   }
 
+  .home__box-1 { top: 4rem; }
+  .home__box-2 { top: 4.75rem; }
+  .home__box-3 { top: 5.5rem; }
+
   .home__img {
-    width: 230px;
+    width: 260px;
+    bottom: 3.5rem;
   }
 
   .home__circle {
-    right: -3rem;
-    bottom: -1.5rem;
+    right: -1.5rem;
+    bottom: -2.25rem;
   }
 
   .home__images .blob-big {
@@ -1292,6 +1418,7 @@ textarea:focus-visible {
     top: 21rem;
   }
 
+  /* About */
   .about__container {
     grid-template-columns: 500px 380px;
     justify-content: space-between;
@@ -1309,6 +1436,7 @@ textarea:focus-visible {
     margin-top: 1.5rem;
   }
 
+  /* Work */
   .work__container {
     max-width: 1380px;
   }
@@ -1321,6 +1449,7 @@ textarea:focus-visible {
     height: 260px;
   }
 
+  /* Services */
   .services__container {
     grid-template-columns: 690px;
     row-gap: 3rem;
@@ -1347,6 +1476,7 @@ textarea:focus-visible {
     padding-left: 5.5rem;
   }
 
+  /* Skills */
   .skills__description {
     max-width: 700px;
     margin-inline: auto;
@@ -1359,19 +1489,7 @@ textarea:focus-visible {
   }
 
   .skills__card {
-    padding: 3rem;
-    flex-direction: row;
-    align-items: center;
-    column-gap: 4rem;
-  }
-
-  .skills__profession {
-    justify-content: flex-start;
-    min-width: 220px;
-  }
-
-  .skills__list {
-    justify-content: flex-start;
+    padding: 1.75rem 2rem;
   }
 
   .skills__title {
@@ -1391,6 +1509,7 @@ textarea:focus-visible {
     font-size: var(--normal-font-size);
   }
 
+  /* Contact */
   .contact__container {
     grid-template-columns: 450px 380px;
     align-items: center;
@@ -1406,6 +1525,7 @@ textarea:focus-visible {
     row-gap: 2rem;
   }
 
+  /* Footer */
   .footer__container {
     grid-template-columns: 600px max-content;
     justify-content: space-between;
@@ -1421,7 +1541,7 @@ textarea:focus-visible {
   }
 }
 
-/*=============== REDUCED MOTION (accessibility) ===============*/
+/*=============== REDUCED MOTION ===============*/
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1443,198 +1563,10 @@ textarea:focus-visible {
   .work__card,
   .button i,
   .services__arrow i,
+  .skills__arrow i,
+  .skills__data,
   .scrollup,
   .footer__social-link {
     transition: none;
-  }
-}
-
-/* ============================================================
-   HERO IMAGE FIX — bulletproof centering at every screen size
-   ============================================================ */
-
-/* The photo group: fixed size, centered by construction */
-.home__images {
-  position: relative;
-  width: 250px;               /* one source of truth for the whole group */
-  height: 320px;
-  margin-inline: auto;        /* centers the group in ANY layout */
-  justify-self: center;       /* centers it inside the grid too */
-}
-
-/* Anchor every decoration to the group — size no longer
-   depends on which child happens to be in normal flow */
-.home__box-1,
-.home__box-2,
-.home__box-3 {
-  position: absolute;
-  width: 210px;
-  height: 250px;
-}
-
-.home__box-1 { top: 3.5rem; left: 0; }
-.home__box-2 { top: 4.25rem; left: .75rem; }
-.home__box-3 { top: 5rem; left: 1.5rem; }
-
-/* The photo: dead-center, immune to aspect ratio and
-   containing-block quirks (left:0 + right:0 + auto margins) */
-.home__img {
-  position: absolute;
-  bottom: 3rem;
-  left: 0;
-  right: 0;
-  margin-inline: auto;
-  width: 220px;
-  transform: none;            /* kills the leftover translateX(-50%) shift */
-}
-
-/* Rotating circle tucked into the corner, smaller overhang */
-.home__circle {
-  right: -1.25rem;
-  bottom: -2.75rem;
-}
-
-/* Desktop scaling */
-@media (width >= 1150px) {
-  .home__images {
-    width: 300px;
-    height: 380px;
-  }
-
-  .home__box-1,
-  .home__box-2,
-  .home__box-3 {
-    width: 250px;
-    height: 300px;
-  }
-
-  .home__box-1 { top: 4rem; }
-  .home__box-2 { top: 4.75rem; }
-  .home__box-3 { top: 5.5rem; }
-
-  .home__img {
-    width: 260px;
-    bottom: 3.5rem;
-  }
-  /*=============== SKILLS ACCORDION ===============*/
-.skills__card {
-  flex-direction: column;
-  align-items: stretch;
-  row-gap: 0;
-  column-gap: 0;
-  padding: 1.25rem 1.5rem;
-}
-
-.skills__button {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  color: var(--white-color);
-  text-align: left;
-  z-index: 5;
-}
-
-.skills__profession {
-  justify-content: flex-start;
-  min-width: 0;
-}
-
-.skills__arrow {
-  width: 32px;
-  height: 32px;
-  background-color: hsla(var(--hue), 60%, 65%, .18);
-  border: 1px solid var(--glass-border);
-  color: var(--white-color);
-  border-radius: 50%;
-  font-size: 1.5rem;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-
-.skills__arrow i {
-  transition: rotate .4s;
-}
-
-.skills__card.skills-open .skills__arrow i {
-  rotate: 180deg;
-}
-
-.skills__data {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height .5s ease, opacity .4s ease;
-}
-
-.skills__card.skills-open .skills__data {
-  max-height: 600px;
-  opacity: 1;
-}
-
-.skills__list {
-  justify-content: flex-start;
-  margin-top: 1.25rem;
-}
-
-@media (width >= 1150px) {
-  .skills__card {
-    padding: 1.75rem 2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skills__arrow i,
-  .skills__data {
-    transition: none;
-  }
-}
-
-.home__subtitle {
-  color: var(--white-color);
-}
-
-.home__description {
-  color: hsl(var(--hue), 24%, 88%);
-}
-
-/* HOME TEXT ALIGNMENT FIX */
-.home__data {
-  text-align: center;
-  max-width: 640px;
-  margin-inline: auto;
-}
-
-.home__title {
-  line-height: 1.25;
-  margin-bottom: .75rem;
-  text-wrap: balance;
-}
-
-.home__subtitle {
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  text-wrap: balance;
-}
-
-.home__description {
-  max-width: 520px;
-  margin-inline: auto;
-  line-height: 1.7;
-  text-wrap: balance; 
-}
-
-.home__container {
-  row-gap: 4rem;
-}
-.home__subtitle {
-  margin-top: 3rem;
-}
-
-  .home__circle {
-    right: -1.5rem;
-    bottom: -2.25rem;
   }
 }
