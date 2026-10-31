@@ -1592,6 +1592,47 @@ textarea:focus-visible {
   }
 }
 
+.home__subtitle {
+  color: var(--white-color);
+}
+
+.home__description {
+  color: hsl(var(--hue), 24%, 88%);
+}
+
+/* HOME TEXT ALIGNMENT FIX */
+.home__data {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.home__title {
+  line-height: 1.25;
+  margin-bottom: .75rem;
+  text-wrap: balance;
+}
+
+.home__subtitle {
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+.home__description {
+  max-width: 520px;
+  margin-inline: auto;
+  line-height: 1.7;
+  text-wrap: balance; 
+}
+
+.home__container {
+  row-gap: 4rem;
+}
+.home__subtitle {
+  margin-top: 3rem;
+}
+
   .home__circle {
     right: -1.5rem;
     bottom: -2.25rem;
