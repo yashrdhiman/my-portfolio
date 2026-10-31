@@ -1,4 +1,22 @@
-/*=============== NAV MENU (show / close) ===============*/
+/* ==========================================================
+   Yash Dhiman | Portfolio scripts
+
+   Contents
+   1.  Nav menu
+   2.  Home circular text
+   3.  Typed text
+   4.  Header blur on scroll
+   5.  Scroll-up button
+   6.  Active link (scroll-spy)
+   7.  Work slider (Swiper)
+   8.  Services accordion
+   9.  Skills accordion
+   10. Contact form (EmailJS)
+   11. Footer year
+   12. Scroll reveal
+   ========================================================== */
+
+/*=============== 1. NAV MENU ===============*/
 const navMenu = document.getElementById('nav-menu')
 const navToggle = document.getElementById('nav-toggle')
 const navClose = document.getElementById('nav-close')
@@ -16,7 +34,7 @@ const closeMenu = () => {
 if (navToggle) navToggle.addEventListener('click', openMenu)
 if (navClose) navClose.addEventListener('click', closeMenu)
 
-/* Close the menu when a link is clicked, or with the Escape key */
+// Close the menu when a link is clicked, or with the Escape key
 document.querySelectorAll('.nav__link, .nav__contact').forEach(link => {
    link.addEventListener('click', closeMenu)
 })
@@ -25,7 +43,7 @@ document.addEventListener('keydown', event => {
    if (event.key === 'Escape') closeMenu()
 })
 
-/*=============== HOME CIRCULAR TEXT ===============*/
+/*=============== 2. HOME CIRCULAR TEXT ===============*/
 const homeText = document.getElementById('home-text')
 
 if (homeText) {
@@ -42,7 +60,8 @@ if (homeText) {
    })
 }
 
-/*=============== TYPED (guarded — a failed CDN can't break the site) ===============*/
+/*=============== 3. TYPED TEXT ===============*/
+// Guarded: a failed CDN can't break the rest of the site
 if (document.getElementById('home-typed') && typeof Typed !== 'undefined') {
    new Typed('#home-typed', {
       strings: ['Aspiring Data Analyst', 'Web Developer', 'Problem Solver'],
@@ -53,50 +72,46 @@ if (document.getElementById('home-typed') && typeof Typed !== 'undefined') {
    })
 }
 
-/*=============== HEADER BLUR ON SCROLL ===============*/
+/*=============== 4. HEADER BLUR ON SCROLL ===============*/
 const header = document.getElementById('header')
 
 const scrollHeader = () => {
-   window.scrollY >= 50
-      ? header.classList.add('scroll-header')
-      : header.classList.remove('scroll-header')
+   header.classList.toggle('scroll-header', window.scrollY >= 50)
 }
 
 window.addEventListener('scroll', scrollHeader)
-window.addEventListener('load', scrollHeader)
 scrollHeader()
 
-/*=============== SHOW SCROLL UP ===============*/
+/*=============== 5. SCROLL-UP BUTTON ===============*/
 const scrollUp = document.getElementById('scroll-up')
 
 const showScrollUp = () => {
-   window.scrollY >= 400
-      ? scrollUp.classList.add('show-scrollup')
-      : scrollUp.classList.remove('show-scrollup')
+   scrollUp.classList.toggle('show-scrollup', window.scrollY >= 400)
 }
 
 window.addEventListener('scroll', showScrollUp)
 showScrollUp()
 
-/*=============== SCROLL SECTIONS ACTIVE LINK (scroll-spy) ===============*/
+/*=============== 6. ACTIVE LINK (SCROLL-SPY) ===============*/
 const navLinks = document.querySelectorAll('.nav__link, .nav__contact')
-const spiedSections = [...document.querySelectorAll('section[id]')].filter(
-   section => document.querySelector(`.nav__link[href="#${section.id}"], .nav__contact[href="#${section.id}"]`)
+
+const spiedSections = [...document.querySelectorAll('section[id]')].filter(section =>
+   document.querySelector(`.nav__link[href="#${section.id}"], .nav__contact[href="#${section.id}"]`)
 )
 
 const spyObserver = new IntersectionObserver(entries => {
    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-         navLinks.forEach(link => {
-            link.classList.toggle('active-link', link.getAttribute('href') === `#${entry.target.id}`)
-         })
-      }
+      if (!entry.isIntersecting) return
+
+      navLinks.forEach(link => {
+         link.classList.toggle('active-link', link.getAttribute('href') === `#${entry.target.id}`)
+      })
    })
 }, { rootMargin: '-40% 0px -55% 0px' })
 
 spiedSections.forEach(section => spyObserver.observe(section))
 
-/*=============== SWIPER WORK (guarded) ===============*/
+/*=============== 7. WORK SLIDER (SWIPER) ===============*/
 if (document.querySelector('.work__swiper') && typeof Swiper !== 'undefined') {
    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -120,18 +135,20 @@ if (document.querySelector('.work__swiper') && typeof Swiper !== 'undefined') {
    })
 }
 
-/*=============== SERVICES ACCORDION (with aria-expanded) ===============*/
+/*=============== 8. SERVICES ACCORDION ===============*/
 const servicesCards = document.querySelectorAll('.services__card')
 
 servicesCards.forEach(card => {
    const button = card.querySelector('.services__button')
+   if (!button) return
 
    button.addEventListener('click', () => {
       const isOpen = card.classList.contains('services-open')
 
+      // Only one card open at a time
       servicesCards.forEach(other => {
          other.classList.remove('services-open')
-         other.querySelector('.services__button').setAttribute('aria-expanded', 'false')
+         other.querySelector('.services__button')?.setAttribute('aria-expanded', 'false')
       })
 
       if (!isOpen) {
@@ -141,58 +158,15 @@ servicesCards.forEach(card => {
    })
 })
 
-/*=============== CONTACT FORM (EmailJS, guarded) ===============*/
-const contactForm = document.getElementById('contact-form')
-const contactMessage = document.getElementById('contact-message')
-
-if (contactForm && typeof emailjs !== 'undefined') {
-   contactForm.addEventListener('submit', async event => {
-      event.preventDefault()
-
-      const submitButton = contactForm.querySelector('.contact__button')
-      submitButton.disabled = true
-
-      try {
-         await emailjs.sendForm('service_av51tfq', 'template_isy3tcw', '#contact-form', '-RLUEmGp3ckRb24sU')
-         contactMessage.textContent = 'Message sent successfully ✅'
-         contactForm.reset()
-      } catch (error) {
-         contactMessage.textContent = 'Message not sent (service error) ❌'
-      } finally {
-         submitButton.disabled = false
-         setTimeout(() => (contactMessage.textContent = ''), 5000)
-      }
-   })
-}
-
-/*=============== FOOTER YEAR (always current) ===============*/
-const footerYear = document.getElementById('footer-year')
-
-if (footerYear) {
-   footerYear.textContent = new Date().getFullYear()
-}
-
-/*=============== SCROLL REVEAL (replaces the ScrollReveal.js library) ===============*/
-const revealElements = document.querySelectorAll('.reveal')
-
-if ('IntersectionObserver' in window) {
-   const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-         if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible')
-            revealObserver.unobserve(entry.target)
-         }
-      })
-   }, { rootMargin: '0px 0px -10% 0px' })
-
-   revealElements.forEach(element => revealObserver.observe(element))
-} else {
-   /* Very old browser: show everything immediately */
-   revealElements.forEach(element => element.classList.add('reveal-visible'))
-}
-
-/*=============== SKILLS ACCORDION (built automatically) ===============*/
+/*=============== 9. SKILLS ACCORDION ===============*/
+// The button, arrow and collapsible area are built here,
+// so the skills HTML stays simple (profession + list per card)
 const skillsCards = document.querySelectorAll('.skills__card')
+
+const openSkillsCard = (card, button) => {
+   card.classList.add('skills-open')
+   button.setAttribute('aria-expanded', 'true')
+}
 
 skillsCards.forEach(card => {
    const profession = card.querySelector('.skills__profession')
@@ -210,8 +184,7 @@ skillsCards.forEach(card => {
    arrow.innerHTML = '<i class="ri-arrow-down-s-line"></i>'
 
    card.insertBefore(button, profession)
-   button.appendChild(profession)
-   button.appendChild(arrow)
+   button.append(profession, arrow)
 
    // Wrap the list in the collapsible area
    const data = document.createElement('div')
@@ -219,27 +192,70 @@ skillsCards.forEach(card => {
    card.insertBefore(data, list)
    data.appendChild(list)
 
-   // Toggle (opening one closes the others, like Services)
+   // Only one card open at a time
    button.addEventListener('click', () => {
       const isOpen = card.classList.contains('skills-open')
 
       skillsCards.forEach(other => {
          other.classList.remove('skills-open')
-         const otherButton = other.querySelector('.skills__button')
-         if (otherButton) otherButton.setAttribute('aria-expanded', 'false')
+         other.querySelector('.skills__button')?.setAttribute('aria-expanded', 'false')
       })
 
-      if (!isOpen) {
-         card.classList.add('skills-open')
-         button.setAttribute('aria-expanded', 'true')
-      }
+      if (!isOpen) openSkillsCard(card, button)
    })
 })
-/*=============== SKILLS: OPEN FIRST CARD BY DEFAULT ===============*/
-const firstSkillsCard = document.querySelector('.skills__card')
 
-if (firstSkillsCard) {
-   firstSkillsCard.classList.add('skills-open')
-   const firstSkillsButton = firstSkillsCard.querySelector('.skills__button')
-   if (firstSkillsButton) firstSkillsButton.setAttribute('aria-expanded', 'true')
+// First card starts open
+const firstSkillsCard = skillsCards[0]
+const firstSkillsButton = firstSkillsCard?.querySelector('.skills__button')
+
+if (firstSkillsButton) openSkillsCard(firstSkillsCard, firstSkillsButton)
+
+/*=============== 10. CONTACT FORM (EMAILJS) ===============*/
+const contactForm = document.getElementById('contact-form')
+const contactMessage = document.getElementById('contact-message')
+
+if (contactForm && typeof emailjs !== 'undefined') {
+   contactForm.addEventListener('submit', async event => {
+      event.preventDefault()
+
+      const submitButton = contactForm.querySelector('.contact__button')
+      submitButton.disabled = true
+
+      try {
+         // service ID, template ID, form selector, public key
+         await emailjs.sendForm('service_av51tfq', 'template_isy3tcw', '#contact-form', '-RLUEmGp3ckRb24sU')
+         contactMessage.textContent = 'Message sent successfully ✅'
+         contactForm.reset()
+      } catch (error) {
+         contactMessage.textContent = 'Message not sent (service error) ❌'
+      } finally {
+         submitButton.disabled = false
+         setTimeout(() => (contactMessage.textContent = ''), 5000)
+      }
+   })
+}
+
+/*=============== 11. FOOTER YEAR ===============*/
+const footerYear = document.getElementById('footer-year')
+
+if (footerYear) footerYear.textContent = new Date().getFullYear()
+
+/*=============== 12. SCROLL REVEAL ===============*/
+const revealElements = document.querySelectorAll('.reveal')
+
+if ('IntersectionObserver' in window) {
+   const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+         if (!entry.isIntersecting) return
+
+         entry.target.classList.add('reveal-visible')
+         revealObserver.unobserve(entry.target)
+      })
+   }, { rootMargin: '0px 0px -10% 0px' })
+
+   revealElements.forEach(element => revealObserver.observe(element))
+} else {
+   // Very old browsers: show everything immediately
+   revealElements.forEach(element => element.classList.add('reveal-visible'))
 }
